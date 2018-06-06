@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "77c5d68d-5840-4f83-b617-04d5e9dfd6c4",
+		"name": "Elasticsearch API Guide",
+		"description": "Sample requests targetting Elasticsearch's API.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Managing Indices",
+			"description": "Requests used for index management.",
+			"item": [
+				{
+					"name": "Basic index creation",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{ELASTICSEARCH}}/companies",
+							"host": [
+								"{{ELASTICSEARCH}}"
+							],
+							"path": [
+								"companies"
+							]
+						},
+						"description": "In its easiest form, it is possible to create an index by issuing a `PUT` request to `/nameoftheindex`.\n\nPs.: Elasticsearch's indices' names must be in lowercase."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete single index",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{ELASTICSEARCH}}/companies",
+							"host": [
+								"{{ELASTICSEARCH}}"
+							],
+							"path": [
+								"companies"
+							]
+						},
+						"description": "To delete a single index from the cluster, issue a `DELETE` request to `/nameoftheindexyouwanttodelete`."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Default API endpoint",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{ELASTICSEARCH}}",
+					"host": [
+						"{{ELASTICSEARCH}}"
+					]
+				},
+				"description": "This is the default API endpoint. It returns basic information about Elasticsearch.\n\nTypically used to validate Elasticsearch's installation."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "79b1e152-7bdb-4268-8294-7e6f6ef8ad4b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "22394cf3-cbfe-4ca6-9d23-319d10b23b1e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "e6ca42ea-a24a-449e-b117-a9758fb62195",
+			"key": "ELASTICSEARCH",
+			"value": "http://localhost:9200",
+			"type": "string",
+			"description": ""
+		}
+	]
+}
