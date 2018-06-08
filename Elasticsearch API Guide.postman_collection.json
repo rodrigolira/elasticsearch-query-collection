@@ -47,6 +47,94 @@
 						"description": "To delete a single index from the cluster, issue a `DELETE` request to `/nameoftheindexyouwanttodelete`."
 					},
 					"response": []
+				},
+				{
+					"name": "List all indices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{ELASTICSEARCH}}/_cat/indices",
+							"host": [
+								"{{ELASTICSEARCH}}"
+							],
+							"path": [
+								"_cat",
+								"indices"
+							]
+						},
+						"description": "Retrieve information about all indices on the cluster.\n\nIt is possible to filter and sort the results by using query string parameters. This can be looked at the following url:\n\nhttps://www.elastic.co/guide/en/elasticsearch/reference/current/cat-indices.html"
+					},
+					"response": []
+				},
+				{
+					"name": "Creating an index with additional configuration",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "118cd864-253a-4389-b5fb-7ec1b5741f20",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"mappings\": {\n\t\t\"_doc\": {\n\t\t\t\"properties\": {\n\t\t\t\t\"name\": {\n\t\t\t\t\t\"type\": \"text\",\n\t\t\t\t\t\"fielddata\": true,\n\t\t\t\t\t\"analyzer\": \"autocomplete_analyzer\"\n\t\t\t\t},\n\t\t\t\t\"resultType\": {\n\t\t\t\t\t\"type\": \"byte\"\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\t\"settings\": {\n\t\t\"analysis\": {\n\t\t\t\"filter\": {\n\t\t\t\t\"autocomplete_filter\": {\n\t\t\t\t\t\"type\": \"edge_ngram\",\n\t\t\t\t\t\"min_gram\": 1,\n\t\t\t\t\t\"max_gram\": 20\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"analyzer\": {\n\t\t\t\t\"autocomplete_analyzer\": {\n\t\t\t\t\t\"type\": \"custom\",\n\t\t\t\t\t\"char_filter\": [],\n\t\t\t\t\t\"tokenizer\": \"standard\",\n\t\t\t\t\t\"filter\": [\n\t\t\t\t\t\t\"standard\",\n\t\t\t\t\t\t\"lowercase\",\n\t\t\t\t\t\t\"asciifolding\",\n\t\t\t\t\t\t\"trim\"\n\t\t\t\t\t]\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}"
+						},
+						"url": {
+							"raw": "{{ELASTICSEARCH}}/carmakesandmodels",
+							"host": [
+								"{{ELASTICSEARCH}}"
+							],
+							"path": [
+								"carmakesandmodels"
+							]
+						},
+						"description": "This same issues a request to create an index while already specifying mappings and settings (mainly analysis related).\n\nAddition configuration is specified in the body of the request."
+					},
+					"response": []
+				},
+				{
+					"name": "Updating mappings on an existing index",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"properties\": {\n\t\t\"email\": {\n\t\t\t\"type\": \"keyword\"\n\t\t}\n\t}\n}"
+						},
+						"url": {
+							"raw": "{{ELASTICSEARCH}}/companies/_mapping/_doc",
+							"host": [
+								"{{ELASTICSEARCH}}"
+							],
+							"path": [
+								"companies",
+								"_mapping",
+								"_doc"
+							]
+						},
+						"description": "Demonstrating adding mappings for a new property on an existing index."
+					},
+					"response": []
 				}
 			]
 		},
@@ -91,7 +179,7 @@
 	],
 	"variable": [
 		{
-			"id": "e6ca42ea-a24a-449e-b117-a9758fb62195",
+			"id": "ba0a7669-3dd5-47c0-90ab-b8667152444d",
 			"key": "ELASTICSEARCH",
 			"value": "http://localhost:9200",
 			"type": "string",
