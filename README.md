@@ -10,3 +10,5 @@ In order to use this collection:
 2. Clone this repository or download `Elasticsearch API Guide.postman_collection.json`.
 3. Open Postman and click the `Import` button. In the next screen, point to the collection file. By selecting the file, it will be imported into your workspace.
 4. To make it easier to reuse the collection, I use a variable called `ELASTICSEARCH` which should point to the Elasticsearch API root. By opening requests you'll see that it points to something like `{{ELASTICSEARCH}}/someindex`. By default, the collection here will always have the variable set to `http://localhost:9200` which is Elasticsearch's default endpoint. If you want to target a different cluster, right click the collection, edit it, go to the `Variables` tab and set the value accordingly.
+
+All queries were created and tested using Elasticsearch `6.2.4`.
