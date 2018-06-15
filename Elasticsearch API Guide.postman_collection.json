@@ -17,12 +17,12 @@
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "{{ELASTICSEARCH}}/companies",
+							"raw": "{{ELASTICSEARCH}}/orders",
 							"host": [
 								"{{ELASTICSEARCH}}"
 							],
 							"path": [
-								"companies"
+								"orders"
 							]
 						},
 						"description": "In its easiest form, it is possible to create an index by issuing a `PUT` request to `/nameoftheindex`.\n\nPs.: Elasticsearch's indices' names must be in lowercase."
@@ -36,12 +36,12 @@
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "{{ELASTICSEARCH}}/companies",
+							"raw": "{{ELASTICSEARCH}}/orders",
 							"host": [
 								"{{ELASTICSEARCH}}"
 							],
 							"path": [
-								"companies"
+								"orders"
 							]
 						},
 						"description": "To delete a single index from the cluster, issue a `DELETE` request to `/nameoftheindexyouwanttodelete`."
@@ -122,19 +122,46 @@
 							"raw": "{\n\t\"properties\": {\n\t\t\"email\": {\n\t\t\t\"type\": \"keyword\"\n\t\t}\n\t}\n}"
 						},
 						"url": {
-							"raw": "{{ELASTICSEARCH}}/companies/_mapping/_doc",
+							"raw": "{{ELASTICSEARCH}}/orders/_mapping/_doc",
 							"host": [
 								"{{ELASTICSEARCH}}"
 							],
 							"path": [
-								"companies",
+								"orders",
 								"_mapping",
 								"_doc"
 							]
 						},
-						"description": "Demonstrating adding mappings for a new property on an existing index."
+						"description": "Demonstrating adding mappings for a new property on an existing index.\n\n`_doc` in the url should be replaced with your desired type."
 					},
 					"response": []
+				}
+			]
+		},
+		{
+			"name": "Indexing Documents",
+			"description": "Requests related to indexing documents on Elasticsearch.",
+			"item": [],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "def74597-bb6e-4f99-aa71-fcf64683fdd8",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "a000d3a2-e934-4533-90b6-0a790dd13c05",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			]
 		},
@@ -179,7 +206,7 @@
 	],
 	"variable": [
 		{
-			"id": "ba0a7669-3dd5-47c0-90ab-b8667152444d",
+			"id": "02fec39b-d9ae-439c-a722-9144d97efcbb",
 			"key": "ELASTICSEARCH",
 			"value": "http://localhost:9200",
 			"type": "string",
