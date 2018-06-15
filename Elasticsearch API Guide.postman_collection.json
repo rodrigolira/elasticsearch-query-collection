@@ -108,7 +108,7 @@
 					"response": []
 				},
 				{
-					"name": "Updating mappings on an existing index",
+					"name": "Add mappings on an existing index",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -206,7 +206,7 @@
 	],
 	"variable": [
 		{
-			"id": "02fec39b-d9ae-439c-a722-9144d97efcbb",
+			"id": "f28861a1-df9d-4063-a840-8600922bba60",
 			"key": "ELASTICSEARCH",
 			"value": "http://localhost:9200",
 			"type": "string",
