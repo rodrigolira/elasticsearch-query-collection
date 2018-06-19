@@ -9,27 +9,28 @@ However, if you prefer to load the data some other way, feel free to use `orders
 All objects on this dataset presents the following structure:
 
     {
-    	"order_id":"ae764cc3-cd1d-4a55-89fb-df14c9e67470",
-    	"customer":{
-    		"first_name":"Frankie",
-    		"last_name":"Barringer",
-    		"full_name":"Frankie Barringer",
-    		"email":"fbarringer0@freewebs.com",
-    		"job_title":"Human Resources Manager",
-    		"address":{
-    			"street_address":"65 Dixon Point",
-    			"street_name":"Superior",
-    			"street_number":"27",
-    			"street_suffix":"Point",
-    			"coordinates":{
-    				"latitude":50.8323221,
-    				"longitude":25.4566978
-    			}
-    		}
-    	},
-    	"car":{
-    		"make":"Rolls-Royce",
-    		"model":"Phantom",
-    		"year":2007
-    	}
+       "order_id":"7012bcd3-5c60-4777-8d1b-6bfd9e5c65a8",
+       "customer":{
+          "first_name":"Morse",
+          "last_name":"Meiklejohn",
+          "full_name":"Morse Meiklejohn",
+          "email":"mmeiklejohn0@fotki.com",
+          "job_title":"Account Coordinator",
+          "address":{
+             "street_address":"23 Commercial Park",
+             "street_name":"Katie",
+             "street_number":"3",
+             "street_suffix":"Crossing",
+             "coordinates":{
+                "latitude":-11.8532073,
+                "longitude":-75.508016
+             }
+          }
+       },
+       "car":{
+          "make":"Subaru",
+          "model":"Alcyone SVX",
+          "year":1995
+       },
+       "order_amount":"43065.62"
     }
